@@ -1,6 +1,8 @@
 package demo.msa.controller;
 
 import org.springframework.stereotype.Controller;
+import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.RequestMethod;
 
 import javax.ws.rs.GET;
 import javax.ws.rs.Path;
@@ -16,7 +18,7 @@ public class DemoTestController {
 
     @GET
     @Produces(MediaType.APPLICATION_JSON)
-    @Path("/success")
+    @RequestMapping(value = "/sucess", method = RequestMethod.GET)
     public String testDemo(){
         return "test success";
     }

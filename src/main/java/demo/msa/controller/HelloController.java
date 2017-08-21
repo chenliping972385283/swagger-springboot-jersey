@@ -1,5 +1,6 @@
 package demo.msa.controller;
 
+import com.wordnik.swagger.annotations.ApiOperation;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
@@ -18,15 +19,15 @@ import javax.ws.rs.core.MediaType;
 @Controller
 public class HelloController {
 
-    @GET
-    @RequestMapping("/hello")
+    @RequestMapping(value = "/hello", method = RequestMethod.GET)
+    @ApiOperation(value = "根据用户名获取用户对象", httpMethod = "GET", response = Void.class, notes = "根据用户名获取用户对象")
     public String Hello(){
         return "/hello";
     }
 
-    @GET
     @ResponseBody
-    @RequestMapping("/hello2")
+    @RequestMapping(value = "/hello2", method = RequestMethod.GET)
+    @ApiOperation(value = "根据用户名获取用户对象", httpMethod = "GET", response = Void.class, notes = "根据用户名获取用户对象")
     public String Hello2(){
         return "Hello";
     }
