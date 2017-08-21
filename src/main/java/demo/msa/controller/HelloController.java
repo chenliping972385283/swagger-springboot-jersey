@@ -21,7 +21,7 @@ public class HelloController {
     @GET
     @RequestMapping("/hello")
     public String Hello(){
-        return "/templates/test";
+        return "/hello";
     }
 
     @GET
