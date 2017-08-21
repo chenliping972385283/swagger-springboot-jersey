@@ -18,7 +18,6 @@ public class DemoTestController {
 
     @GET
     @Produces(MediaType.APPLICATION_JSON)
-    @RequestMapping(value = "/sucess", method = RequestMethod.GET)
     public String testDemo(){
         return "test success";
     }
