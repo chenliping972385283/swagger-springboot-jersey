@@ -26,7 +26,7 @@ public class HelloController {
     }
 
     @ResponseBody
-    @RequestMapping(value = "/hello2", method = RequestMethod.GET)
+   @RequestMapping(value = "/hello2", method = RequestMethod.GET)
     @ApiOperation(value = "根据用户名获取用户对象", httpMethod = "GET", response = Void.class, notes = "根据用户名获取用户对象")
     public String Hello2(){
         return "Hello";
