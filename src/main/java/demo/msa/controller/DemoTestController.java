@@ -1,5 +1,6 @@
 package demo.msa.controller;
 
+import com.wordnik.swagger.annotations.Api;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
@@ -14,6 +15,7 @@ import javax.ws.rs.core.MediaType;
  */
 @Controller
 @Path("/test")
+@Api(value = "Hello resource", produces = "application/json")
 public class DemoTestController {
 
     @GET
