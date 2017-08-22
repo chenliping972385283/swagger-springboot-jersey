@@ -1,6 +1,5 @@
 package demo.msa.config;
 
-import demo.msa.controller.DemoTestController;
 import demo.msa.controller.HelloResource;
 import io.swagger.jaxrs.config.BeanConfig;
 import io.swagger.jaxrs.listing.ApiListingResource;
@@ -22,6 +21,7 @@ public class JerseyConfig  extends ResourceConfig{
     private String apiPath;
 
     public JerseyConfig() {
+        // Register endpoints, providers, ...
         this.registerEndpoints();
     }
 
@@ -32,14 +32,13 @@ public class JerseyConfig  extends ResourceConfig{
     }
 
     private void registerEndpoints() {
-       // this.register(CORSResponseFilter.class);
         this.register(HelloResource.class);
-        // Available at /<Jersey's servlet path>/application.wadl
+        // Access through /<Jersey's servlet path>/application.wadl
         this.register(WadlResource.class);
     }
 
     private void configureSwagger() {
-        // Available at localhost:port/swagger.json
+        // Available at localhost:port/api/swagger.json
         this.register(ApiListingResource.class);
         this.register(SwaggerSerializers.class);
 
@@ -47,19 +46,11 @@ public class JerseyConfig  extends ResourceConfig{
         config.setConfigId("springboot-jersey-swagger-docker-example");
         config.setTitle("Spring Boot + Jersey + Swagger + Docker Example");
         config.setVersion("v1");
-        config.setContact("Hao Zhou");
-        config.setSchemes(new String[]{"http", "https"});
+        config.setContact("Orlando L Otero");
+        config.setSchemes(new String[] { "http", "https" });
         config.setBasePath(this.apiPath);
         config.setResourcePackage("demo.msa.controller");
         config.setPrettyPrint(true);
         config.setScan(true);
-
-        // it does not work as below
-        //config.getSwagger().setSecurityDefinitions(XX);
-
-        // if you want to have you pojo parse as SNAKE_CASE, please add following line,
-        // also in this case, you should use swagger.yaml, rather than swagger.json for output, as
-        // some swagger keywords, such as operationId, will be parsed as operation_id. - syntax error
-        //io.swagger.util.Json.mapper().setPropertyNamingStrategy(PropertyNamingStrategy.SNAKE_CASE);
     }
 }
