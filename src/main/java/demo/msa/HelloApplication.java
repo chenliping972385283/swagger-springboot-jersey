@@ -9,18 +9,14 @@ import org.springframework.boot.context.web.SpringBootServletInitializer;
  * Created by jinli on 2017/7/31.
  */
 
-@SpringBootApplication(
-        scanBasePackages = {
-                "demo.msa.config", "demo.msa.controller"
-        }
-)
+@SpringBootApplication
 public class HelloApplication extends SpringBootServletInitializer {
 
 
-    @Override
+  /*  @Override
     protected SpringApplicationBuilder configure(SpringApplicationBuilder builder) {
         return builder.sources(HelloApplication.class);
-    }
+    }*/
 
     public static void main(String[] args)
     {
